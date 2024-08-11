@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -18,13 +18,10 @@ const MenuProps = {
 };
 
 const names = [
-  'Web Developement',
-  'Seo',
-  'Guest Post',
-  'Content Marketing',
-  'Email Marketing',
-
-  
+  "Web Developement/ Price:30000PKR",
+  "Seo / Price:2500PKR",
+  "Guest Post / Price:1500PKR",
+  "Content Writing / Price: 1500PKR",
 ];
 
 function getStyles(name, personName, theme) {
@@ -46,13 +43,13 @@ export default function DropdownMenue() {
     } = event;
     setPersonName(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === "string" ? value.split(",") : value
     );
   };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 220 }}>
+      <FormControl sx={{ m: 1, width: 230 }}>
         <InputLabel id="demo-multiple-name-label">Course</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
@@ -62,11 +59,10 @@ export default function DropdownMenue() {
           onChange={handleChange}
           input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
-     className='w-[15vw]'
+          className="w-[20vw]"
         >
           {names.map((name) => (
             <MenuItem
-            className=" m-[5vh] py-3 text-black  font-bold  shadow-md rounded-lg flex justify-evenly outline-none p-2 w-[20vw]  "
               key={name}
               value={name}
               style={getStyles(name, personName, theme)}
