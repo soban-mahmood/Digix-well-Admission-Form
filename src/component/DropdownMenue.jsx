@@ -32,18 +32,18 @@ function getStyles(name, personName, theme) {
         : theme.typography.fontWeightMedium,
   };
 }
-
-export default function DropdownMenue() {
+export default function DropdownMenue({ course, setCourse }) {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+
+    // Update the selected course state in the Form component
+    setPersonName(typeof value === "string" ? value.split(",") : value);
+    setCourse(value); // Pass the selected course to the Form component
   };
 
   return (

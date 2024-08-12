@@ -8,20 +8,22 @@ const Form = () => {
     fname: "",
     email: "",
     phone: "",
+    course:'',
   });
 
+  const [course, setCourse] = React.useState(""); // State for the selected course
+
   const handleChange = (e) => {
-    const { name, value } = e.target; // Correctly extract the name and value
-    setData({ ...data, [name]: value }); // Update the state with the new value
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value ,course});
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(data)
+    const { name, fname, email, phone ,course} = data;
 
-    const { name, fname, email, phone } = data;
-
-    // Ensure all fields are filled out
-    if (name && fname && email && phone) {
+    if (name && fname && email && phone && course) { // Ensure course is also filled
       try {
         let res = await fetch(
           "https://form-632c4-default-rtdb.firebaseio.com/Digix-Well-Addmission/user.json",
@@ -31,22 +33,24 @@ const Form = () => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              name: name,
-              fname: fname,
-              email: email,
-              phone: phone,
+              name,
+              fname,
+              email,
+              phone,
+              course, // Include the selected course
             }),
           }
         );
 
-        // Check if the request was successful
         if (res.ok) {
           setData({
             name: "",
             fname: "",
             email: "",
             phone: "",
+            course: "", // Reset the selected course
           });
+         // Reset the selected course
           alert("Data submitted successfully");
         } else {
           alert("Failed to submit data");
@@ -59,6 +63,7 @@ const Form = () => {
       alert("Please fill all the fields");
     }
   };
+
   return (
     <div className="text-black">
       <h1>
@@ -78,7 +83,7 @@ const Form = () => {
               required
               value={data.name}
               onChange={handleChange}
-              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw] "
+              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw]"
             />
             <input
               type="text"
@@ -109,15 +114,15 @@ const Form = () => {
             />
 
             <div className="rounded-lg ml-10 outline-none">
-              <DropdownMenue />
+              <DropdownMenue course={course} setCourse={setCourse} value={data.course}/>
             </div>
           </div>
           <div className="flex flex-col items-center gap-10 mt-10">
             <h4 className="text-center font-bold text-black">
               <input type="checkbox" required />{" "}
-              <span className="">
+              <span>
                 By enrolling in this Course, I commit to engaging actively in
-                the learning process and completing all required <br />{" "}
+                the learning process and completing all required <br />
                 assignments to the best of my ability.
               </span>
             </h4>
