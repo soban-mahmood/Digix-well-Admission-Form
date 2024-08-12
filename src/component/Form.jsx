@@ -8,19 +8,58 @@ const Form = () => {
     fname: "",
     email: "",
     phone: "",
-    gender: "",
-    course: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
+    const { name, value } = e.target; // Correctly extract the name and value
+    setData({ ...data, [name]: value }); // Update the state with the new value
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+    
+    const { name, fname, email, phone } = data;
+  
+    // Ensure all fields are filled out
+    if (name && fname && email && phone) {
+      try {
+        let res = await fetch(
+          "https://form-632c4-default-rtdb.firebaseio.com/Digix-Well-Addmission/user.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              fname: fname,
+              email: email,
+              phone: phone,
+            }),
+          }
+        );
+  
+        // Check if the request was successful
+        if (res.ok) {
+          setData({
+            name: "",
+            fname: "",
+            email: "",
+            phone: "",
+          });
+          alert("Data submitted successfully");
+        } else {
+          alert("Failed to submit data");
+        }
+      } catch (error) {
+        console.error("Error submitting data:", error);
+        alert("An error occurred while submitting the data");
+      }
+    } else {
+      alert("Please fill all the fields");
+    }
   };
+  ;
 
   return (
     <div className="text-black">
@@ -32,7 +71,7 @@ const Form = () => {
         Institute. Fill Your Original Data in this form.
       </h3>
       <div>
-        <form onSubmit={handleSubmit} className="mt-10">
+        <form className="mt-10" method="POST">
           <div>
             <input
               type="text"
@@ -85,7 +124,7 @@ const Form = () => {
               </span>
             </h4>
             <button
-              type="submit"
+              onClick={handleSubmit}
               className="text-white bg-blue-700 lg:w-[15vw] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Submit Your Form
