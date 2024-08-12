@@ -36,7 +36,6 @@ function getStyles(name, personName, theme) {
 export default function DropdownMenue() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
-
   const handleChange = (event) => {
     const {
       target: { value },
