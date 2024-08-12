@@ -59,7 +59,7 @@ export default function DropdownMenue() {
           onChange={handleChange}
           input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
-          className="w-[20vw]"
+          className="lg:w-[20vw]"
         >
           {names.map((name) => (
             <MenuItem
