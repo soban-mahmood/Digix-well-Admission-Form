@@ -17,9 +17,9 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const { name, fname, email, phone } = data;
-  
+
     // Ensure all fields are filled out
     if (name && fname && email && phone) {
       try {
@@ -38,7 +38,7 @@ const Form = () => {
             }),
           }
         );
-  
+
         // Check if the request was successful
         if (res.ok) {
           setData({
@@ -59,8 +59,6 @@ const Form = () => {
       alert("Please fill all the fields");
     }
   };
-  ;
-
   return (
     <div className="text-black">
       <h1>
