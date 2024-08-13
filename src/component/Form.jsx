@@ -51,7 +51,7 @@ const Form = () => {
             course: "",
             check:'' // Reset the selected course
           });
-          setCourse(""); // Reset the selected course
+          setCourse(" "); // Reset the selected course
           alert("Data submitted successfully");
         } else {
           alert("Failed to submit data");
