@@ -129,7 +129,7 @@ const Form = () => {
           <div className="flex flex-col items-center gap-10 mt-10">
             <div className="text-center font-bold text-black px-4">
               <input type="checkbox" required name="check" />
-              <span className="text-[1vw]">
+              <span className="lg:text-[1vw]">
                 By enrolling in this Course, I commit to engaging actively in
                 the learning process and completing all required assignments to
                 the best of my ability.
