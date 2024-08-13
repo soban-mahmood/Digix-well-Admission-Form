@@ -8,7 +8,6 @@ const Form = () => {
     fname: "",
     email: "",
     phone: "",
-    course: "",
   });
 
   const [course, setCourse] = React.useState(""); // State for the selected course
