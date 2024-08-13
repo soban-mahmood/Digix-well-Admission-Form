@@ -109,7 +109,7 @@ const Form = () => {
               className="mt-3  py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 w-full"
             />
             <input
-              type="text"
+              type="number"
               placeholder="Enter Your Phone Number"
               name="phone"
               required
