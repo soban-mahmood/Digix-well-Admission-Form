@@ -19,8 +19,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", data);
-    console.log("Selected Course:", course);
 
     const { name, fname, email, phone } = data; // course is separately managed
 
