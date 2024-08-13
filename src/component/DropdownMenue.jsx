@@ -18,7 +18,8 @@ const MenuProps = {
 };
 
 const names = [
-  "Web Developement/ Price:30000PKR",
+  "Facebook Ads / Price:25000",
+  "Web Developement/Price:30000",
   "Seo / Price:2500PKR",
   "Guest Post / Price:1500PKR",
   "Content Writing / Price: 1500PKR",
