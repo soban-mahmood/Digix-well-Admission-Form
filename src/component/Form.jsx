@@ -8,25 +8,27 @@ const Form = () => {
     fname: "",
     email: "",
     phone: "",
-    course:'',
+    course: "",
   });
 
   const [course, setCourse] = React.useState(""); // State for the selected course
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData({ ...data, [name]: value ,course});
+    setData({ ...data, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data)
-    const { name, fname, email, phone ,course} = data;
+    console.log("Form Data:", data);
+    console.log("Selected Course:", course);
 
-    if (name && fname && email && phone && course) { // Ensure course is also filled
+    const { name, fname, email, phone } = data; // course is separately managed
+
+    if (name && fname && email && phone && course) {
       try {
         let res = await fetch(
-          "https://form-632c4-default-rtdb.firebaseio.com/Digix-Well-Addmission/user.json",
+          "https://admission-form-64b5c-default-rtdb.firebaseio.com/user.json",
           {
             method: "POST",
             headers: {
@@ -50,7 +52,7 @@ const Form = () => {
             phone: "",
             course: "", // Reset the selected course
           });
-         // Reset the selected course
+          setCourse(""); // Reset the selected course
           alert("Data submitted successfully");
         } else {
           alert("Failed to submit data");
@@ -114,7 +116,11 @@ const Form = () => {
             />
 
             <div className="rounded-lg ml-10 outline-none">
-              <DropdownMenue course={course} setCourse={setCourse} value={data.course}/>
+              <DropdownMenue
+                course={course}
+                setCourse={setCourse}
+                value={data.course}
+              />
             </div>
           </div>
           <div className="flex flex-col items-center gap-10 mt-10">
