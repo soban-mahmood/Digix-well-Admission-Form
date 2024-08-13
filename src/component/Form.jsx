@@ -8,6 +8,7 @@ const Form = () => {
     fname: "",
     email: "",
     phone: "",
+    check: "",
   });
 
   const [course, setCourse] = React.useState(""); // State for the selected course
@@ -47,7 +48,8 @@ const Form = () => {
             fname: "",
             email: "",
             phone: "",
-            course: "", // Reset the selected course
+            course: "",
+            check:'' // Reset the selected course
           });
           setCourse(""); // Reset the selected course
           alert("Data submitted successfully");
@@ -67,7 +69,9 @@ const Form = () => {
     <div className="text-black">
       <div className="p-6 flex flex-col items-center justify-center">
         <img src={logo} alt="" className="h-[60px] w-[120px]" />
-        <span className="text-[12vw]">DIGIX WELL</span>
+        <span className="text-[2rem] text-[#013488] font-black">
+          DIGIX WELL
+        </span>
       </div>
 
       <div>
@@ -124,8 +128,8 @@ const Form = () => {
           </div>
           <div className="flex flex-col items-center gap-10 mt-10">
             <div className="text-center font-bold text-black px-4">
-              <input type="checkbox" required />
-              <span className="">
+              <input type="checkbox" required name="check" />
+              <span className="text-[1vw]">
                 By enrolling in this Course, I commit to engaging actively in
                 the learning process and completing all required assignments to
                 the best of my ability.
@@ -133,7 +137,7 @@ const Form = () => {
             </div>
             <button
               onClick={handleSubmit}
-              className="text-white bg-blue-700 lg:w-[15vw] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="text-white bg-[#003489] lg:w-[15vw] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Submit Your Form
             </button>

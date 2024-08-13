@@ -48,7 +48,7 @@ export default function DropdownMenue({ course, setCourse }) {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 230 }}>
+      <FormControl sx={{ m: 1, width: 230 }} className="">
         <InputLabel id="demo-multiple-name-label">Course</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
@@ -58,7 +58,7 @@ export default function DropdownMenue({ course, setCourse }) {
           onChange={handleChange}
           input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
-          className="lg:w-[20vw]"
+          className="w-[50vw] mt-3"
         >
           {names.map((name) => (
             <MenuItem
