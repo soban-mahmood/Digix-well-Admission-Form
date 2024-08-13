@@ -1,5 +1,5 @@
 import React from "react";
-import logo2 from "../../public/logo2.png";
+import logo from "../../public/logo.png";
 import DropdownMenue from "./DropdownMenue";
 
 const Form = () => {
@@ -65,16 +65,18 @@ const Form = () => {
 
   return (
     <div className="text-black">
-      <h1>
-        <img src={logo2} alt="" className="lg:w-[40vw] sm:[80vw]" />
-      </h1>
-      <h3 className="text-center lg:text-[1vw] font-bold text-black lg:w-[40vw]">
-        Digix Well Admission Form, This Registration is Confidential for Our
-        Institute. Fill Your Original Data in this form.
-      </h3>
+      <div className="p-6 flex flex-col items-center justify-center">
+        <img src={logo} alt="" className="h-[60px] w-[120px]" />
+        <span className="text-[12vw]">DIGIX WELL</span>
+      </div>
+
       <div>
-        <form className="mt-10" method="POST">
-          <div>
+        <p className="text-center font-bold text-black px-4">
+          Digix Well Admission Form, This Registration is Confidential for Our
+          Institute. Fill Your Original Data in this form.
+        </p>
+        <form className="mt-3" method="POST">
+          <div className="p-4">
             <input
               type="text"
               placeholder="Enter Your Name"
@@ -82,7 +84,7 @@ const Form = () => {
               required
               value={data.name}
               onChange={handleChange}
-              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw]"
+              className="mt-3  py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 w-full"
             />
             <input
               type="text"
@@ -91,7 +93,7 @@ const Form = () => {
               required
               value={data.fname}
               onChange={handleChange}
-              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw]"
+              className="mt-3  py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 w-full"
             />
             <input
               type="email"
@@ -100,7 +102,7 @@ const Form = () => {
               required
               value={data.email}
               onChange={handleChange}
-              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw]"
+              className="mt-3  py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 w-full"
             />
             <input
               type="text"
@@ -109,7 +111,7 @@ const Form = () => {
               required
               value={data.phone}
               onChange={handleChange}
-              className="mt-3 sm:m-[6vw] lg:m-[5vh] py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 sm:w-[50vh] lg:w-[30vw]"
+              className="mt-3  py-3 text-black font-bold shadow-md rounded-lg flex justify-evenly outline-none p-2 w-full"
             />
 
             <div className="rounded-lg ml-10 outline-none">
@@ -121,14 +123,14 @@ const Form = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-10 mt-10">
-            <h4 className="text-center font-bold text-black">
-              <input type="checkbox" required />{" "}
-              <span>
+            <div className="text-center font-bold text-black px-4">
+              <input type="checkbox" required />
+              <span className="">
                 By enrolling in this Course, I commit to engaging actively in
-                the learning process and completing all required <br />
-                assignments to the best of my ability.
+                the learning process and completing all required assignments to
+                the best of my ability.
               </span>
-            </h4>
+            </div>
             <button
               onClick={handleSubmit}
               className="text-white bg-blue-700 lg:w-[15vw] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
