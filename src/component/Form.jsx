@@ -75,7 +75,7 @@ const Form = () => {
       </div>
 
       <div>
-        <p className="text-center font-bold text-black px-4">
+        <p className="text-center font-bold text-black px-4 lg:text-[1vw]">
           Digix Well Admission Form, This Registration is Confidential for Our
           Institute. Fill Your Original Data in this form.
         </p>
